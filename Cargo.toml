@@ -2,6 +2,9 @@
 name = "lightclaw"
 version = "0.1.0"
 edition = "2021"
+description = "LightClaw: The Real Lightweight AI Assistant"
+homepage = "https://lightclaw.dev/"
+repository = "https://github.com/zofrasca/lightclaw"
 
 [dependencies]
 anyhow = "1"

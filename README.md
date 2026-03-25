@@ -38,6 +38,29 @@ Supported platforms:
 
 Note: A Windows binary exists, but it is currently less stable and not as well-supported as the others.
 
+### Installation with Nix flakes
+
+If you use Nix flakes, add this repository as an input for your system or home configuration.
+
+```nix
+{
+  inputs.lightclaw.url = "github:zofrasca/lightclaw";
+}
+```
+
+With this, you can now add `ligthclaw` in your installed system packages.
+
+```nix
+# system-packages.nix
+{ pkgs, inputs, ... }:let
+  inherit (pkgs.stdenv.hostPlatform) system;
+in {
+  environment.systemPackages = [ inputs.lightclaw.packages.${system}.default ];
+}
+```
+
+The same can be applied for your home-manager packages.
+
 ## What You Get
 
 - Single-binary deploy: ship one executable, no Python runtime.
